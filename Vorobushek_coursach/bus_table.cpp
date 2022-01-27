@@ -1,6 +1,6 @@
 #include "bus_table.h"
 
-bus_table::bus_table(const std::string &filename) : fn(filename), f(filename, std::ios::in | std::ios::out | std::ios::app)
+bus_table::bus_table(const std::string &filename) : fn(filename), f(filename, std::ios::in | std::ios::out | std::ios::app)		// конструктор класса маршрутной таблицы
 {
 	if (!(f.is_open()))
 		throw bad_opened_file();
@@ -31,13 +31,13 @@ bus_table::bus_table(const std::string &filename) : fn(filename), f(filename, st
 	}
 }
 
-void bus_table::add_bus(bus b)
+void bus_table::add_bus(bus b)		// метод добавления нового маршрута 
 {
 	f << b;
 	buses.push_back(b);
 }
 
-void bus_table::remove_bus(ui rn)
+void bus_table::remove_bus(ui rn)		// метод удаления маршрута из таблицы
 {
 	for (std::vector<bus>::const_iterator it = buses.begin(); it != buses.end(); ++it)
 	{
@@ -51,7 +51,7 @@ void bus_table::remove_bus(ui rn)
 	send_into_file();
 }
 
-void bus_table::show_table() const
+void bus_table::show_table() const		// метод отображения таблицы всех возможных маршрутов
 {
 	std::cout << "\t\t\t\t\tСписок всех возможных маршрутов:\n\n\n";
 	std::cout << "=======================================================================================================================" << std::endl;
@@ -66,7 +66,7 @@ void bus_table::show_table() const
 	std::cout << "=======================================================================================================================\n\n\n";
 }
 
-void bus_table::personal_task() const
+void bus_table::personal_task() const		// метод для отображения индивидуального задания (указан в методичке)
 {
 	time_t now;
 	tm nowLocal;

@@ -1,14 +1,14 @@
 #include "bus.h"
 
-bus::bus(ui rn, std::string fs, Time ttl, Time at, Type t = Type::Default)
+bus::bus(ui rn, std::string fs, Time ttl, Time at, Type t = Type::Default)      // конструктор класса автобуса
     :route_number(rn), type(t), finished_stop(fs), 
      time_to_leave(ttl), arrival_time(at)
 {
 
 }
 
-void bus::show_bus() const
-{
+void bus::show_bus() const      // метод отображения маршрута автобуса в консоли
+{   
     std::cout << "|  " << route_number << "\t\t\t|  "; 
     switch (type)
     {
@@ -35,7 +35,7 @@ void bus::show_bus() const
 
 }
 
-fstream& operator<<(fstream& fs, const bus& b)
+fstream& operator<<(fstream& fs, const bus& b)      // перегрузка оператора << для корректного ввода маршрута в файл через fstream
 {
     fs << b.route_number << ' ' << static_cast<int>(b.type) << ' ' << b.finished_stop << ' '
         << b.time_to_leave.get_h() << b.time_to_leave.get_m() << ' ' 

@@ -1,11 +1,11 @@
 #include "admin.h"
 
-admin::admin(const std::string &str) : user(str)
+admin::admin(const std::string &str) : user(str)	// конструктор класса администратора
 {
 
 }
 
-void admin::add_bus()
+void admin::add_bus()		// метод добавления нового рейса на доску
 {
 	bus_table::bus_buff buff;
 	ui t, lt, at;
@@ -41,7 +41,7 @@ void admin::add_bus()
 	std::cout << "Маршрут с номером " << buff.route_number << " успешно создан!" << std::endl;
 }
 
-void admin::remove_bus()
+void admin::remove_bus()	// метод удаления существующего рейса с доски
 {
 	ui rn;
 	std::cout << "Введите номер маршрута для удаления: ";
